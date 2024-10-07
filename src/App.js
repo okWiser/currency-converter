@@ -16,12 +16,19 @@ function App() {
   const [toCurrency, setToCurrency] = useState('EUR');
   const [exchangeRate, setExchangeRate] = useState(1);
   const [currencies, setCurrencies] = useState(currencyList);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://api.exchangeratesapi.io/latest?base=${fromCurrency}`)
-      .then(response => {
+    const fetchExchangeRates = async () => {
+      try {
+        const response = await axios.get(`https://api.exchangeratesapi.io/latest?base=${fromCurrency}`);
         setExchangeRate(response.data.rates[toCurrency]);
-      });
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchExchangeRates();
   }, [fromCurrency, toCurrency]);
 
   const handleAmountChange = (e) => setAmount(e.target.value);
@@ -40,7 +47,7 @@ function App() {
             className="border p-2 mr-2 w-full rounded-md"
           />
           <div className="flex items-center">
-            <img src={flags[fromCurrency]} alt={fromCurrency} className="w-6 h-6 mr-2" />
+            <img src={flags[fromCurrency] || '/placeholder.png'} alt={fromCurrency} className="w-6 h-6 mr-2" />
             <select value={fromCurrency} onChange={handleFromCurrencyChange} className="border p-2 mr-2 rounded-md">
               {currencies.map(currency => (
                 <option key={currency} value={currency}>{currency}</option>
@@ -49,7 +56,7 @@ function App() {
           </div>
           <span className="mr-2 text-lg">to</span>
           <div className="flex items-center">
-            <img src={flags[toCurrency]} alt={toCurrency} className="w-6 h-6 mr-2" />
+            <img src={flags[toCurrency] || '/placeholder.png'} alt={toCurrency} className="w-6 h-6 mr-2" />
             <select value={toCurrency} onChange={handleToCurrencyChange} className="border p-2 rounded-md">
               {currencies.map(currency => (
                 <option key={currency} value={currency}>{currency}</option>
@@ -58,9 +65,13 @@ function App() {
           </div>
         </div>
         <div className="text-center">
-          <h2 className="text-2xl font-semibold text-green-600">
-            {amount} {fromCurrency} = {(amount * exchangeRate).toFixed(2)} {toCurrency}
-          </h2>
+          {error ? (
+            <p className="text-red-500">{error}</p>
+          ) : (
+            <h2 className="text-2xl font-semibold text-green-600">
+              {amount} {fromCurrency} = {(amount * exchangeRate).toFixed(2)} {toCurrency}
+            </h2>
+          )}
         </div>
       </div>
     </div>
