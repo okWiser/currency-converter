@@ -15,7 +15,6 @@ function App() {
   const [fromCurrency, setFromCurrency] = useState('USD');
   const [toCurrency, setToCurrency] = useState('EUR');
   const [exchangeRate, setExchangeRate] = useState(1);
-  const [currencies, setCurrencies] = useState(currencyList);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -49,7 +48,7 @@ function App() {
           <div className="flex items-center">
             <img src={flags[fromCurrency] || '/placeholder.png'} alt={fromCurrency} className="w-6 h-6 mr-2" />
             <select value={fromCurrency} onChange={handleFromCurrencyChange} className="border p-2 mr-2 rounded-md">
-              {currencies.map(currency => (
+              {currencyList.map(currency => (
                 <option key={currency} value={currency}>{currency}</option>
               ))}
             </select>
@@ -58,7 +57,7 @@ function App() {
           <div className="flex items-center">
             <img src={flags[toCurrency] || '/placeholder.png'} alt={toCurrency} className="w-6 h-6 mr-2" />
             <select value={toCurrency} onChange={handleToCurrencyChange} className="border p-2 rounded-md">
-              {currencies.map(currency => (
+              {currencyList.map(currency => (
                 <option key={currency} value={currency}>{currency}</option>
               ))}
             </select>
