@@ -14,10 +14,9 @@ const CurrencyConverter = () => {
     JSON.parse(localStorage.getItem("favorites")) || ["INR", "EUR"]
   );
 
-  // Currencies -> https://api.frankfurter.app/currencies
   const fetchCurrencies = async () => {
     try {
-      const res = await fetch("https://api.frankfurter.app/currencies");
+      const res = await fetch("https://www.exchangerate-api.com/");
       const data = await res.json();
 
       setCurrencies(Object.keys(data));
@@ -32,13 +31,12 @@ const CurrencyConverter = () => {
 
   console.log(currencies);
 
-  // Conversion -> https://api.frankfurter.app/latest?amount=1&from=USD&to=INR
   const convertCurrency = async () => {
     if (!amount) return;
     setConverting(true);
     try {
       const res = await fetch(
-        `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCurrency}&to=${toCurrency}`
+        `https://www.exchangerate-api.com=${amount}&from=${fromCurrency}&to=${toCurrency}`
       );
       const data = await res.json();
 
