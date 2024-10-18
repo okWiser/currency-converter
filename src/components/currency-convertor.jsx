@@ -2,16 +2,20 @@ import {useEffect} from "react";
 import {useState} from "react";
 import CurrencyDropdown from "./dropdown";
 import {HiArrowsRightLeft} from "react-icons/hi2";
+import React, { useState, useEffect } from 'react';
+import CurrencyDropdown from './CurrencyDropdown';
+import { HiArrowsRightLeft } from 'react-icons/hi2';
+import './app.css';
 
 const CurrencyConverter = () => {
   const [currencies, setCurrencies] = useState([]);
   const [amount, setAmount] = useState(1);
   const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("INR");
+  const [toCurrency, setToCurrency] = useState("ZAR");
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [converting, setConverting] = useState(false);
   const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem("favorites")) || ["INR", "EUR"]
+    JSON.parse(localStorage.getItem("favorites")) || ["ZAR", "EUR"]
   );
 
   // Currencies -> https://api.frankfurter.app/currencies
@@ -128,7 +132,7 @@ const CurrencyConverter = () => {
       </div>
 
       {convertedAmount && (
-        <div className="mt-4 text-lg font-medium text-right text-green-600">
+        <div className="mt-4 text-lg font-medium text-right text-green-500">
           Converted Amount: {convertedAmount}
         </div>
       )}
