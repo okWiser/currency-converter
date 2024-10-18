@@ -5,7 +5,6 @@ import {HiArrowsRightLeft} from "react-icons/hi2";
 import React, { useState, useEffect } from 'react';
 import CurrencyDropdown from './CurrencyDropdown';
 import { HiArrowsRightLeft } from 'react-icons/hi2';
-import './app.css';
 
 const CurrencyConverter = () => {
   const [currencies, setCurrencies] = useState([]);
