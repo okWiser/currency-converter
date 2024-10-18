@@ -3,7 +3,6 @@ import {useState} from "react";
 import CurrencyDropdown from "./dropdown";
 import {HiArrowsRightLeft} from "react-icons/hi2";
 import React, { useState, useEffect } from 'react';
-import CurrencyDropdown from './CurrencyDropdown';
 import { HiArrowsRightLeft } from 'react-icons/hi2';
 
 const CurrencyConverter = () => {
