@@ -33,13 +33,13 @@ const CurrencyConverter = () => {
 
   console.log(currencies);
 
-  // https://v6.exchangerate-api.com/v6/952768784b858a9718e7b57e/latest/USD
+  // Conversion -> https://api.frankfurter.app/latest?amount=1&from=USD&to=INR
   const convertCurrency = async () => {
     if (!amount) return;
     setConverting(true);
     try {
       const res = await fetch(
-        'https://v6.exchangerate-api.com/v6/952768784b858a9718e7b57e/latest/USD?amount=${amount}&from=${fromCurrency}&to=${toCurrency}'
+        `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCurrency}&to=${toCurrency}`
       );
       const data = await res.json();
 
