@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Currency Converter Pro",
+    "description": "Professional currency converter with real-time rates"
+  },
+  "converter": {
+    "amount": "Amount",
+    "from": "From",
+    "to": "To",
+    "convert": "Convert Currency",
+    "result": "Conversion Result",
+    "rate": "Rate",
+    "swapCurrencies": "Swap currencies",
+    "addToFavorites": "Add to favorites",
+    "removeFromFavorites": "Remove from favorites"
+  },
+  "errors": {
+    "invalidAmount": "Please enter a valid amount greater than 0",
+    "sameCurrency": "Please select different currencies",
+    "networkError": "Network error. Please check your connection.",
+    "apiError": "Unable to fetch exchange rates. Please try again.",
+    "generalError": "Something went wrong. Please try again."
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light mode",
+    "dark": "Dark mode"
+  }
+}

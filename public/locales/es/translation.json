@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Conversor de Monedas Pro",
+    "description": "Conversor de monedas profesional con tasas en tiempo real"
+  },
+  "converter": {
+    "amount": "Cantidad",
+    "from": "De",
+    "to": "A",
+    "convert": "Convertir Moneda",
+    "result": "Resultado de Conversión",
+    "rate": "Tasa",
+    "swapCurrencies": "Intercambiar monedas",
+    "addToFavorites": "Agregar a favoritos",
+    "removeFromFavorites": "Quitar de favoritos"
+  },
+  "errors": {
+    "invalidAmount": "Por favor ingrese una cantidad válida mayor a 0",
+    "sameCurrency": "Por favor seleccione monedas diferentes",
+    "networkError": "Error de red. Por favor verifique su conexión.",
+    "apiError": "No se pudieron obtener las tasas de cambio. Inténtelo de nuevo.",
+    "generalError": "Algo salió mal. Por favor inténtelo de nuevo."
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
+  }
+}
