@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { HiOutlineStar, HiStar } from 'react-icons/hi2';
-import { motion } from 'framer-motion';
 import { useAppStore } from '@/store';
 import { getCurrencyName } from '@/utils';
 import type { Currency } from '@/types';
